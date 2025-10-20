@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/users")
+@RequestMapping("/email")
 public class UserController {
     private final OrderManager manager;
 
-    @PostMapping("/email")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createEmail(@RequestBody String email) {
         manager.placeOrder(email, "Здравствуйте! Ваш аккаунт на сайте ваш сайт был успешно создан.");
     }
 
-    @DeleteMapping("/email")
+    @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public void deleteMail(@RequestBody String email) {
         manager.placeOrder(email, "Здравствуйте! Ваш аккаунт был удалён.");
